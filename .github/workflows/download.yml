@@ -11,13 +11,32 @@ jobs:
     steps:
       - name: download docker
         run: |
-          docker pull gcr.io/knative-releases/knative.dev/operator/cmd/webhook@sha256:30982f8c1e5ec21fece0b170c11a62e5488807ee910c463c2963df6c19e1f368
-          docker tag gcr.io/knative-releases/knative.dev/operator/cmd/webhook@sha256:30982f8c1e5ec21fece0b170c11a62e5488807ee910c463c2963df6c19e1f368 dazyun/knative-webhook:v1.6.1
+          docker pull gcr.io/knative-releases/knative.dev/serving/cmd/activator@sha256:08315309da4b219ec74bb2017f569a98a7cfecee5e1285b03dfddc2410feb7d7
+          docker tag gcr.io/knative-releases/knative.dev/serving/cmd/activator@sha256:08315309da4b219ec74bb2017f569a98a7cfecee5e1285b03dfddc2410feb7d7 dazyun/knative-serving:v1.6.1
           
-          docker pull gcr.io/knative-releases/knative.dev/operator/cmd/operator@sha256:23a267df4c11033fbb862192d713cd0ec46f50cda2a57eb261fff91e9039236b
-          docker tag gcr.io/knative-releases/knative.dev/operator/cmd/operator@sha256:23a267df4c11033fbb862192d713cd0ec46f50cda2a57eb261fff91e9039236b dazyun/knative-operator:v1.6.1
+          docker pull gcr.io/knative-releases/knative.dev/serving/cmd/autoscaler@sha256:105bdd14ecaabad79d9bbcb8359bf2c317bd72382f80a7c4a335adfea53844f2
+          docker tag gcr.io/knative-releases/knative.dev/serving/cmd/autoscaler@sha256:105bdd14ecaabad79d9bbcb8359bf2c317bd72382f80a7c4a335adfea53844f2 dazyun/knative-autoscaler:v1.6.1
+          
+          docker pull gcr.io/knative-releases/knative.dev/serving/cmd/autoscaler-hpa@sha256:5526e650784165aa2ed2af1846e0e8bf37d5c52815ad6865bbe5d99d78eca32e
+          docker tag gcr.io/knative-releases/knative.dev/serving/cmd/autoscaler-hpa@sha256:5526e650784165aa2ed2af1846e0e8bf37d5c52815ad6865bbe5d99d78eca32e dazyun/knative-autoscaler-hpa:v1.6.1
+
+          docker pull gcr.io/knative-releases/knative.dev/serving/cmd/controller@sha256:bac158dfb0c73d13ed42266ba287f1a86192c0ba581e23fbe012d30a1c34837c
+          docker tag gcr.io/knative-releases/knative.dev/serving/cmd/controller@sha256:bac158dfb0c73d13ed42266ba287f1a86192c0ba581e23fbe012d30a1c34837c dazyun/knative-controller:v1.6.1
+
+          docker pull gcr.io/knative-releases/knative.dev/serving/cmd/webhook@sha256:1282a399cbb94f3b9de4f199239b39e795b87108efe7d8ba0380147160a97abb
+          docker tag gcr.io/knative-releases/knative.dev/serving/cmd/webhook@sha256:1282a399cbb94f3b9de4f199239b39e795b87108efe7d8ba0380147160a97abb dazyun/knative-serving-webhook:v1.6.1
+          
+          docker pull gcr.io/knative-releases/knative.dev/serving/cmd/domain-mapping-webhook@sha256:15f1ce7f35b4765cc3b1c073423ab8d8bf2c8c2630eea3995c610f520fb68ca0
+          docker tag gcr.io/knative-releases/knative.dev/serving/cmd/domain-mapping-webhook@sha256:15f1ce7f35b4765cc3b1c073423ab8d8bf2c8c2630eea3995c610f520fb68ca0 dazyun/knative-serving-domain-mapping-webhook:v1.6.1
+          
+          docker pull gcr.io/knative-releases/knative.dev/pkg/apiextensions/storageversion/cmd/migrate@sha256:b333601675dc5f8349b3133bd9fcc7a620db0a5076892ea00338b19fc1e073fb
+          docker tag gcr.io/knative-releases/knative.dev/pkg/apiextensions/storageversion/cmd/migrate@sha256:b333601675dc5f8349b3133bd9fcc7a620db0a5076892ea00338b19fc1e073fb dazyun/knative-storageversion-migration:v1.6.1
           
           docker login -u dazyun -p dckr_pat_ZA5wVlDzq_VAxqJcKhyPy3p0xgM
-          docker push dazyun/knative-operator:v1.6.1
-          docker push dazyun/knative-webhook:v1.6.1
-          
+          docker push dazyun/knative-serving:v1.6.1
+          docker push dazyun/knative-autoscaler:v1.6.1
+          docker push dazyun/knative-autoscaler-hpa:v1.6.1
+          docker push dazyun/knative-controller:v1.6.1
+          docker push dazyun/knative-serving-webhook:v1.6.1
+          docker push dazyun/knative-serving-domain-mapping-webhook:v1.6.1
+          docker push dazyun/knative-storageversion-migration:v1.6.1
