@@ -11,32 +11,32 @@ jobs:
     steps:
       - name: download docker
         run: |
-          docker pull gcr.io/knative-releases/knative.dev/serving/cmd/activator@sha256:08315309da4b219ec74bb2017f569a98a7cfecee5e1285b03dfddc2410feb7d7
-          docker tag gcr.io/knative-releases/knative.dev/serving/cmd/activator@sha256:08315309da4b219ec74bb2017f569a98a7cfecee5e1285b03dfddc2410feb7d7 dazyun/knative-serving:v1.6.1
+          docker pull gcr.io/knative-releases/knative.dev/serving/cmd/domain-mapping@sha256:e384a295069b9e10e509fc3986cce4fe7be4ff5c73413d1c2234a813b1f4f99b
+          docker tag gcr.io/knative-releases/knative.dev/serving/cmd/domain-mapping@sha256:e384a295069b9e10e509fc3986cce4fe7be4ff5c73413d1c2234a813b1f4f99b dazyun/knative-serving-domain-mapping:v1.6.1
           
-          docker pull gcr.io/knative-releases/knative.dev/serving/cmd/autoscaler@sha256:105bdd14ecaabad79d9bbcb8359bf2c317bd72382f80a7c4a335adfea53844f2
-          docker tag gcr.io/knative-releases/knative.dev/serving/cmd/autoscaler@sha256:105bdd14ecaabad79d9bbcb8359bf2c317bd72382f80a7c4a335adfea53844f2 dazyun/knative-autoscaler:v1.6.1
+          docker pull gcr.io/knative-releases/knative.dev/serving/cmd/queue@sha256:813ea20d55b5063596cf967d1c63f51b9e34f883653957157b9b5341dfad0001
+          docker tag gcr.io/knative-releases/knative.dev/serving/cmd/queue@sha256:813ea20d55b5063596cf967d1c63f51b9e34f883653957157b9b5341dfad0001 dazyun/knative-serving-queue:v1.6.1
           
-          docker pull gcr.io/knative-releases/knative.dev/serving/cmd/autoscaler-hpa@sha256:5526e650784165aa2ed2af1846e0e8bf37d5c52815ad6865bbe5d99d78eca32e
-          docker tag gcr.io/knative-releases/knative.dev/serving/cmd/autoscaler-hpa@sha256:5526e650784165aa2ed2af1846e0e8bf37d5c52815ad6865bbe5d99d78eca32e dazyun/knative-autoscaler-hpa:v1.6.1
+          docker pull docker.io/istio/proxyv2:1.14.1
+          docker tag docker.io/istio/proxyv2:1.14.1 dazyun/knative-istio-proxyv2:1.14.1
 
-          docker pull gcr.io/knative-releases/knative.dev/serving/cmd/controller@sha256:bac158dfb0c73d13ed42266ba287f1a86192c0ba581e23fbe012d30a1c34837c
-          docker tag gcr.io/knative-releases/knative.dev/serving/cmd/controller@sha256:bac158dfb0c73d13ed42266ba287f1a86192c0ba581e23fbe012d30a1c34837c dazyun/knative-controller:v1.6.1
+          docker pull docker.io/istio/pilot:1.14.1
+          docker tag docker.io/istio/pilot:1.14.1 dazyun/knative-istio-pilot:1.14.1
 
-          docker pull gcr.io/knative-releases/knative.dev/serving/cmd/webhook@sha256:1282a399cbb94f3b9de4f199239b39e795b87108efe7d8ba0380147160a97abb
-          docker tag gcr.io/knative-releases/knative.dev/serving/cmd/webhook@sha256:1282a399cbb94f3b9de4f199239b39e795b87108efe7d8ba0380147160a97abb dazyun/knative-serving-webhook:v1.6.1
+          docker pull busybox:1.28
+          docker tag busybox:1.28 dazyun/knative-busybox:1.28
           
-          docker pull gcr.io/knative-releases/knative.dev/serving/cmd/domain-mapping-webhook@sha256:15f1ce7f35b4765cc3b1c073423ab8d8bf2c8c2630eea3995c610f520fb68ca0
-          docker tag gcr.io/knative-releases/knative.dev/serving/cmd/domain-mapping-webhook@sha256:15f1ce7f35b4765cc3b1c073423ab8d8bf2c8c2630eea3995c610f520fb68ca0 dazyun/knative-serving-domain-mapping-webhook:v1.6.1
+          docker pull gcr.io/knative-releases/knative.dev/net-istio/cmd/controller@sha256:e8ed74cd7c4839bb83fc4ad005da7742da5bb12145c661ec702df107bda80090
+          docker tag gcr.io/knative-releases/knative.dev/net-istio/cmd/controller@sha256:e8ed74cd7c4839bb83fc4ad005da7742da5bb12145c661ec702df107bda80090 dazyun/knative-istio-controller:v1.6.1
           
-          docker pull gcr.io/knative-releases/knative.dev/pkg/apiextensions/storageversion/cmd/migrate@sha256:b333601675dc5f8349b3133bd9fcc7a620db0a5076892ea00338b19fc1e073fb
-          docker tag gcr.io/knative-releases/knative.dev/pkg/apiextensions/storageversion/cmd/migrate@sha256:b333601675dc5f8349b3133bd9fcc7a620db0a5076892ea00338b19fc1e073fb dazyun/knative-storageversion-migration:v1.6.1
+          docker pull gcr.io/knative-releases/knative.dev/net-istio/cmd/webhook@sha256:148b0ffa1f4bc9402daaac55f233581f7999b1562fa3079a8ab1d1a8213fd909
+          docker tag gcr.io/knative-releases/knative.dev/net-istio/cmd/webhook@sha256:148b0ffa1f4bc9402daaac55f233581f7999b1562fa3079a8ab1d1a8213fd909 dazyun/knative-istio-webhook:v1.6.1
           
           docker login -u dazyun -p dckr_pat_ZA5wVlDzq_VAxqJcKhyPy3p0xgM
-          docker push dazyun/knative-serving:v1.6.1
-          docker push dazyun/knative-autoscaler:v1.6.1
-          docker push dazyun/knative-autoscaler-hpa:v1.6.1
-          docker push dazyun/knative-controller:v1.6.1
-          docker push dazyun/knative-serving-webhook:v1.6.1
-          docker push dazyun/knative-serving-domain-mapping-webhook:v1.6.1
-          docker push dazyun/knative-storageversion-migration:v1.6.1
+          docker push dazyun/knative-serving-domain-mapping:v1.6.1
+          docker push dazyun/dazyun/knative-serving-queue:v1.6.1
+          docker push dazyun/knative-istio-proxyv2:1.14.1
+          docker push dazyun/knative-istio-pilot:1.14.1
+          docker push dazyun/knative-busybox:1.28
+          docker push dazyun/knative-istio-controller:v1.6.1
+          docker push dazyun/knative-istio-webhook:v1.6.1
