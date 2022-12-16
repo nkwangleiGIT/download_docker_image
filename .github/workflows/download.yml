@@ -11,41 +11,13 @@ jobs:
     steps:
       - name: download docker
         run: |
-          docker pull gcr.io/knative-releases/knative.dev/serving/cmd/default-domain@sha256:27833a973f457f40eb94ee193df9e40df081153bb52c18480ed80f8cdd838ed3
-          docker tag gcr.io/knative-releases/knative.dev/serving/cmd/default-domain@sha256:27833a973f457f40eb94ee193df9e40df081153bb52c18480ed80f8cdd838ed3 dazyun/knative-serving-default-domain:v1.6.1
+          docker pull gcr.io/knative-releases/knative.dev/eventing-kafka/cmd/source/controller@sha256:5f42372f8fc3b3ec2256c40f298b129eeb1a8da9a8055cf8e92d0b3552257ae4
+          docker tag gcr.io/knative-releases/knative.dev/eventing-kafka/cmd/source/controller@sha256:5f42372f8fc3b3ec2256c40f298b129eeb1a8da9a8055cf8e92d0b3552257ae4 dazyun/knative-eventing-kafka-controller:v1.6.1
           
-          docker pull gcr.io/knative-releases/knative.dev/eventing/cmd/controller@sha256:204fdaa828603a03b66ee30141ebf88c98881829d6af5f57c34400408d15ec91
-          docker tag gcr.io/knative-releases/knative.dev/eventing/cmd/controller@sha256:204fdaa828603a03b66ee30141ebf88c98881829d6af5f57c34400408d15ec91 dazyun/knative-eventing-controller:v1.6.1
-          
-          docker pull gcr.io/knative-releases/knative.dev/eventing/cmd/mtping@sha256:d0a3c1c41596d7f98e332e36351faffeb213edc3e444621159d349579035e956
-          docker tag gcr.io/knative-releases/knative.dev/eventing/cmd/mtping@sha256:d0a3c1c41596d7f98e332e36351faffeb213edc3e444621159d349579035e956 dazyun/knative-eventing-mtping:v1.6.1
-
-          docker pull gcr.io/knative-releases/knative.dev/eventing/cmd/webhook@sha256:65e83bd39a909fc6ce171750281660e3df2becd6c7b550b5d902d335f3379ae7
-          docker tag gcr.io/knative-releases/knative.dev/eventing/cmd/webhook@sha256:65e83bd39a909fc6ce171750281660e3df2becd6c7b550b5d902d335f3379ae7 dazyun/knative-eventing-webhook:v1.6.1
-
-          docker pull gcr.io/knative-releases/knative.dev/eventing/cmd/in_memory/channel_controller@sha256:97d7db62ea35f7f9199787722c352091987e8816d549c3193ee5683424fef8d0
-          docker tag gcr.io/knative-releases/knative.dev/eventing/cmd/in_memory/channel_controller@sha256:97d7db62ea35f7f9199787722c352091987e8816d549c3193ee5683424fef8d0 dazyun/knative-eventing-in-memory-channel-controller:v1.6.1
-          
-          docker pull gcr.io/knative-releases/knative.dev/eventing/cmd/in_memory/channel_dispatcher@sha256:3163f0a3b3ba5b81c36357df3dd2bff834056f2943c5b395adb497fb97476d20
-          docker tag gcr.io/knative-releases/knative.dev/eventing/cmd/in_memory/channel_dispatcher@sha256:3163f0a3b3ba5b81c36357df3dd2bff834056f2943c5b395adb497fb97476d20 dazyun/knative-eventing-in-memory-channel-dispatcher:v1.6.1
-          
-          docker pull gcr.io/knative-releases/knative.dev/eventing/cmd/broker/filter@sha256:32d368bcbabee58fad2dd84c39c1d84b6dc5b608cc599d1387add40bae41b000
-          docker tag gcr.io/knative-releases/knative.dev/eventing/cmd/broker/filter@sha256:32d368bcbabee58fad2dd84c39c1d84b6dc5b608cc599d1387add40bae41b000 dazyun/knative-eventing-broker-filter:v1.6.1
-          
-          docker pull gcr.io/knative-releases/knative.dev/eventing/cmd/broker/ingress@sha256:924bbc1944abb6ab91a8c3d7d6dfbb27f1e55b56ec456b9efc88e4f7320bae2f
-          docker tag gcr.io/knative-releases/knative.dev/eventing/cmd/broker/ingress@sha256:924bbc1944abb6ab91a8c3d7d6dfbb27f1e55b56ec456b9efc88e4f7320bae2f dazyun/knative-eventing-broker-ingress:v1.6.1
-          
-          docker pull gcr.io/knative-releases/knative.dev/eventing/cmd/mtchannel_broker@sha256:915d73c4d00990d5db5aa1e26b54b128df025cea7b688b95af8f14e1570fb4d4
-          docker tag gcr.io/knative-releases/knative.dev/eventing/cmd/mtchannel_broker@sha256:915d73c4d00990d5db5aa1e26b54b128df025cea7b688b95af8f14e1570fb4d4 dazyun/knative-eventing-mtchannel-broker:v1.6.1
+          docker pull gcr.io/knative-releases/knative.dev/eventing-kafka/cmd/source/receive_adapter@sha256:f4c4eef09853fd03324ed9895950ca50f93585c0faf25dbdbe01642534f753db
+          docker tag gcr.io/knative-releases/knative.dev/eventing-kafka/cmd/source/receive_adapter@sha256:f4c4eef09853fd03324ed9895950ca50f93585c0faf25dbdbe01642534f753db dazyun/knative-eventing-kafka-receive-adapter:v1.6.1
           
           docker login -u dazyun -p dckr_pat_ZA5wVlDzq_VAxqJcKhyPy3p0xgM
-          docker push dazyun/knative-serving-default-domain:v1.6.1
-          docker push dazyun/knative-eventing-controller:v1.6.1
-          docker push dazyun/knative-eventing-mtping:v1.6.1
-          docker push dazyun/knative-eventing-webhook:v1.6.1
-          docker push dazyun/knative-eventing-in-memory-channel-controller:v1.6.1
-          docker push dazyun/knative-eventing-in-memory-channel-dispatcher:v1.6.1
-          docker push dazyun/knative-eventing-broker-filter:v1.6.1
-          docker push dazyun/knative-eventing-broker-ingress:v1.6.1
-          docker push dazyun/knative-eventing-mtchannel-broker:v1.6.1
+          docker push dazyun/knative-eventing-kafka-controller:v1.6.1
+          docker push dazyun/knative-eventing-kafka-receive-adapter:v1.6.1
 
