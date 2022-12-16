@@ -1,4 +1,4 @@
-name: download
+name: download-knative
 
 on:
   workflow_dispatch:
@@ -34,7 +34,7 @@ jobs:
           
           docker login -u dazyun -p dckr_pat_ZA5wVlDzq_VAxqJcKhyPy3p0xgM
           docker push dazyun/knative-serving-domain-mapping:v1.6.1
-          docker push dazyun/dazyun/knative-serving-queue:v1.6.1
+          docker push dazyun/knative-serving-queue:v1.6.1
           docker push dazyun/knative-istio-proxyv2:1.14.1
           docker push dazyun/knative-istio-pilot:1.14.1
           docker push dazyun/knative-busybox:1.28
