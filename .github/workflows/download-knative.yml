@@ -9,11 +9,11 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     env:
-      IMAGE: "gcr.io/knative-releases/knative.dev/operator/cmd/operator@sha256:ca06becf37d0beb0d90a2eabfe0d70256c6b71fd47dd01d07ccac45e1a71927f"
+      IMAGE: "gcr.io/knative-releases/knative.dev/operator/cmd/webhook@sha256:2232125661afc22b5bb2ad6d34f4b309ef50493cf0f0441d6cd97dcbe7a6991a"
     steps:
       - name: download docker
         run: |
           docker pull ${{ env.IMAGE }}
-          docker tag ${{ env.IMAGE }} dazyun/knative-operator:v1.8.1
+          docker tag ${{ env.IMAGE }} dazyun/knative-webhook:v1.8.1
           docker login -u dazyun -p dckr_pat_ZA5wVlDzq_VAxqJcKhyPy3p0xgM
-          docker push dazyun/knative-operator:v1.8.1
+          docker push dazyun/knative-webhook:v1.8.1
