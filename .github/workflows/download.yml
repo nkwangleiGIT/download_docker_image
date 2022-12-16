@@ -11,32 +11,41 @@ jobs:
     steps:
       - name: download docker
         run: |
-          docker pull gcr.io/knative-releases/knative.dev/serving/cmd/domain-mapping@sha256:e384a295069b9e10e509fc3986cce4fe7be4ff5c73413d1c2234a813b1f4f99b
-          docker tag gcr.io/knative-releases/knative.dev/serving/cmd/domain-mapping@sha256:e384a295069b9e10e509fc3986cce4fe7be4ff5c73413d1c2234a813b1f4f99b dazyun/knative-serving-domain-mapping:v1.6.1
+          docker pull gcr.io/knative-releases/knative.dev/serving/cmd/default-domain@sha256:27833a973f457f40eb94ee193df9e40df081153bb52c18480ed80f8cdd838ed3
+          docker tag gcr.io/knative-releases/knative.dev/serving/cmd/default-domain@sha256:27833a973f457f40eb94ee193df9e40df081153bb52c18480ed80f8cdd838ed3 dazyun/knative-serving-default-domain:v1.6.1
           
-          docker pull gcr.io/knative-releases/knative.dev/serving/cmd/queue@sha256:813ea20d55b5063596cf967d1c63f51b9e34f883653957157b9b5341dfad0001
-          docker tag gcr.io/knative-releases/knative.dev/serving/cmd/queue@sha256:813ea20d55b5063596cf967d1c63f51b9e34f883653957157b9b5341dfad0001 dazyun/knative-serving-queue:v1.6.1
+          docker pull gcr.io/knative-releases/knative.dev/eventing/cmd/controller@sha256:204fdaa828603a03b66ee30141ebf88c98881829d6af5f57c34400408d15ec91
+          docker tag gcr.io/knative-releases/knative.dev/eventing/cmd/controller@sha256:204fdaa828603a03b66ee30141ebf88c98881829d6af5f57c34400408d15ec91 dazyun/knative-eventing-controller:v1.6.1
           
-          docker pull docker.io/istio/proxyv2:1.14.1
-          docker tag docker.io/istio/proxyv2:1.14.1 dazyun/knative-istio-proxyv2:1.14.1
+          docker pull gcr.io/knative-releases/knative.dev/eventing/cmd/mtping@sha256:d0a3c1c41596d7f98e332e36351faffeb213edc3e444621159d349579035e956
+          docker tag gcr.io/knative-releases/knative.dev/eventing/cmd/mtping@sha256:d0a3c1c41596d7f98e332e36351faffeb213edc3e444621159d349579035e956 dazyun/knative-eventing-mtping:v1.6.1
 
-          docker pull docker.io/istio/pilot:1.14.1
-          docker tag docker.io/istio/pilot:1.14.1 dazyun/knative-istio-pilot:1.14.1
+          docker pull gcr.io/knative-releases/knative.dev/eventing/cmd/webhook@sha256:65e83bd39a909fc6ce171750281660e3df2becd6c7b550b5d902d335f3379ae7
+          docker tag gcr.io/knative-releases/knative.dev/eventing/cmd/webhook@sha256:65e83bd39a909fc6ce171750281660e3df2becd6c7b550b5d902d335f3379ae7 dazyun/knative-eventing-webhook:v1.6.1
 
-          docker pull busybox:1.28
-          docker tag busybox:1.28 dazyun/knative-busybox:1.28
+          docker pull gcr.io/knative-releases/knative.dev/eventing/cmd/in_memory/channel_controller@sha256:97d7db62ea35f7f9199787722c352091987e8816d549c3193ee5683424fef8d0
+          docker tag gcr.io/knative-releases/knative.dev/eventing/cmd/in_memory/channel_controller@sha256:97d7db62ea35f7f9199787722c352091987e8816d549c3193ee5683424fef8d0 dazyun/knative-eventing-in-memory-channel-controller:v1.6.1
           
-          docker pull gcr.io/knative-releases/knative.dev/net-istio/cmd/controller@sha256:e8ed74cd7c4839bb83fc4ad005da7742da5bb12145c661ec702df107bda80090
-          docker tag gcr.io/knative-releases/knative.dev/net-istio/cmd/controller@sha256:e8ed74cd7c4839bb83fc4ad005da7742da5bb12145c661ec702df107bda80090 dazyun/knative-istio-controller:v1.6.1
+          docker pull gcr.io/knative-releases/knative.dev/eventing/cmd/in_memory/channel_dispatcher@sha256:3163f0a3b3ba5b81c36357df3dd2bff834056f2943c5b395adb497fb97476d20
+          docker tag gcr.io/knative-releases/knative.dev/eventing/cmd/in_memory/channel_dispatcher@sha256:3163f0a3b3ba5b81c36357df3dd2bff834056f2943c5b395adb497fb97476d20 dazyun/knative-eventing-in-memory-channel-dispatcher:v1.6.1
           
-          docker pull gcr.io/knative-releases/knative.dev/net-istio/cmd/webhook@sha256:148b0ffa1f4bc9402daaac55f233581f7999b1562fa3079a8ab1d1a8213fd909
-          docker tag gcr.io/knative-releases/knative.dev/net-istio/cmd/webhook@sha256:148b0ffa1f4bc9402daaac55f233581f7999b1562fa3079a8ab1d1a8213fd909 dazyun/knative-istio-webhook:v1.6.1
+          docker pull gcr.io/knative-releases/knative.dev/eventing/cmd/broker/filter@sha256:32d368bcbabee58fad2dd84c39c1d84b6dc5b608cc599d1387add40bae41b000
+          docker tag gcr.io/knative-releases/knative.dev/eventing/cmd/broker/filter@sha256:32d368bcbabee58fad2dd84c39c1d84b6dc5b608cc599d1387add40bae41b000 dazyun/knative-eventing-broker-filter:v1.6.1
+          
+          docker pull gcr.io/knative-releases/knative.dev/eventing/cmd/broker/ingress@sha256:924bbc1944abb6ab91a8c3d7d6dfbb27f1e55b56ec456b9efc88e4f7320bae2f
+          docker tag gcr.io/knative-releases/knative.dev/eventing/cmd/broker/ingress@sha256:924bbc1944abb6ab91a8c3d7d6dfbb27f1e55b56ec456b9efc88e4f7320bae2f dazyun/knative-eventing-broker-ingress:v1.6.1
+          
+          docker pull gcr.io/knative-releases/knative.dev/eventing/cmd/mtchannel_broker@sha256:915d73c4d00990d5db5aa1e26b54b128df025cea7b688b95af8f14e1570fb4d4
+          docker tag gcr.io/knative-releases/knative.dev/eventing/cmd/mtchannel_broker@sha256:915d73c4d00990d5db5aa1e26b54b128df025cea7b688b95af8f14e1570fb4d4 dazyun/knative-eventing-mtchannel-broker:v1.6.1
           
           docker login -u dazyun -p dckr_pat_ZA5wVlDzq_VAxqJcKhyPy3p0xgM
-          docker push dazyun/knative-serving-domain-mapping:v1.6.1
-          docker push dazyun/knative-serving-queue:v1.6.1
-          docker push dazyun/knative-istio-proxyv2:1.14.1
-          docker push dazyun/knative-istio-pilot:1.14.1
-          docker push dazyun/knative-busybox:1.28
-          docker push dazyun/knative-istio-controller:v1.6.1
-          docker push dazyun/knative-istio-webhook:v1.6.1
+          docker push dazyun/knative-serving-default-domain:v1.6.1
+          docker push dazyun/knative-eventing-controller:v1.6.1
+          docker push dazyun/knative-eventing-mtping:v1.6.1
+          docker push dazyun/knative-eventing-webhook:v1.6.1
+          docker push dazyun/knative-eventing-in-memory-channel-controller:v1.6.1
+          docker push dazyun/knative-eventing-in-memory-channel-dispatcher:v1.6.1
+          docker push dazyun/knative-eventing-broker-filter:v1.6.1
+          docker push dazyun/knative-eventing-broker-ingress:v1.6.1
+          docker push dazyun/knative-eventing-mtchannel-broker:v1.6.1
+
