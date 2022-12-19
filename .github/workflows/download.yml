@@ -11,13 +11,12 @@ jobs:
     steps:
       - name: download docker
         run: |
-          docker pull gcr.io/knative-releases/knative.dev/eventing-kafka/cmd/source/controller@sha256:5f42372f8fc3b3ec2256c40f298b129eeb1a8da9a8055cf8e92d0b3552257ae4
-          docker tag gcr.io/knative-releases/knative.dev/eventing-kafka/cmd/source/controller@sha256:5f42372f8fc3b3ec2256c40f298b129eeb1a8da9a8055cf8e92d0b3552257ae4 dazyun/knative-eventing-kafka-controller:v1.6.1
+          docker pull gcr.io/knative-nightly/knative.dev/eventing-kafka/cmd/webhook@sha256:0e8cc60cfb6401c8b9cf94deb4c66df5cb550af93783686c358d2e03c325ffad
+          docker tag gcr.io/knative-nightly/knative.dev/eventing-kafka/cmd/webhook@sha256:0e8cc60cfb6401c8b9cf94deb4c66df5cb550af93783686c358d2e03c325ffad dazyun/knative-eventing-kafka-webhook:v0.35
           
-          docker pull gcr.io/knative-releases/knative.dev/eventing-kafka/cmd/source/receive_adapter@sha256:f4c4eef09853fd03324ed9895950ca50f93585c0faf25dbdbe01642534f753db
-          docker tag gcr.io/knative-releases/knative.dev/eventing-kafka/cmd/source/receive_adapter@sha256:f4c4eef09853fd03324ed9895950ca50f93585c0faf25dbdbe01642534f753db dazyun/knative-eventing-kafka-receive-adapter:v1.6.1
+          docker pull gcr.io/knative-nightly/knative.dev/eventing-kafka/cmd/channel/distributed/controller@sha256:846418c96cfeccdf1c542264dc9e9afc20ba86c84d679ce186153e94a4a5807c
+          docker tag gcr.io/knative-nightly/knative.dev/eventing-kafka/cmd/channel/distributed/controller@sha256:846418c96cfeccdf1c542264dc9e9afc20ba86c84d679ce186153e94a4a5807c dazyun/knative-eventing-kafka-channel-controller:v0.35
           
           docker login -u dazyun -p dckr_pat_ZA5wVlDzq_VAxqJcKhyPy3p0xgM
-          docker push dazyun/knative-eventing-kafka-controller:v1.6.1
-          docker push dazyun/knative-eventing-kafka-receive-adapter:v1.6.1
-
+          docker push dazyun/knative-eventing-kafka-webhook:v0.35
+          docker push dazyun/knative-eventing-kafka-channel-controller:v0.35
