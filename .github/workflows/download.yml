@@ -11,12 +11,12 @@ jobs:
     steps:
       - name: download docker
         run: |
-          docker pull gcr.io/knative-nightly/knative.dev/eventing-kafka/cmd/webhook@sha256:0e8cc60cfb6401c8b9cf94deb4c66df5cb550af93783686c358d2e03c325ffad
-          docker tag gcr.io/knative-nightly/knative.dev/eventing-kafka/cmd/webhook@sha256:0e8cc60cfb6401c8b9cf94deb4c66df5cb550af93783686c358d2e03c325ffad dazyun/knative-eventing-kafka-webhook:v0.35
+          docker pull gcr.io/knative-nightly/knative.dev/eventing-kafka/cmd/channel/distributed/receiver@sha256:eb0baae6624621e5296cdd184217b42404074b6b891f4b5363c2fa7fad52c9b2
+          docker tag gcr.io/knative-nightly/knative.dev/eventing-kafka/cmd/channel/distributed/receiver@sha256:eb0baae6624621e5296cdd184217b42404074b6b891f4b5363c2fa7fad52c9b2 dazyun/knative-eventing-kafka-channel-receiver:v0.35
           
-          docker pull gcr.io/knative-nightly/knative.dev/eventing-kafka/cmd/channel/distributed/controller@sha256:846418c96cfeccdf1c542264dc9e9afc20ba86c84d679ce186153e94a4a5807c
-          docker tag gcr.io/knative-nightly/knative.dev/eventing-kafka/cmd/channel/distributed/controller@sha256:846418c96cfeccdf1c542264dc9e9afc20ba86c84d679ce186153e94a4a5807c dazyun/knative-eventing-kafka-channel-controller:v0.35
+          docker pull gcr.io/knative-nightly/knative.dev/eventing-kafka/cmd/channel/distributed/dispatcher@sha256:f6ffe954e24de7559ae00268d11f26da8907f5de72383094bd8bd4ae250e6f13
+          docker tag gcr.io/knative-nightly/knative.dev/eventing-kafka/cmd/channel/distributed/dispatcher@sha256:f6ffe954e24de7559ae00268d11f26da8907f5de72383094bd8bd4ae250e6f13 dazyun/knative-eventing-kafka-channel-dispatcher:v0.35
           
           docker login -u dazyun -p dckr_pat_ZA5wVlDzq_VAxqJcKhyPy3p0xgM
-          docker push dazyun/knative-eventing-kafka-webhook:v0.35
-          docker push dazyun/knative-eventing-kafka-channel-controller:v0.35
+          docker push dazyun/knative-eventing-kafka-channel-receiver:v0.35
+          docker push dazyun/knative-eventing-kafka-channel-dispatcher:v0.35
