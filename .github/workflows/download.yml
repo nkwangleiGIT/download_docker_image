@@ -11,8 +11,11 @@ jobs:
     steps:
       - name: download docker
         run: |
-          docker pull gcr.io/tekton-releases/github.com/tektoncd/dashboard/cmd/dashboard:v0.31.0@sha256:454a405aa4f874a0c22db7ab47ccb225a95addd3de904084e35c5de78e4f2c48
-          docker tag gcr.io/tekton-releases/github.com/tektoncd/dashboard/cmd/dashboard:v0.31.0@sha256:454a405aa4f874a0c22db7ab47ccb225a95addd3de904084e35c5de78e4f2c48 dazyun/tektoncd-pipeline-dashboard:v0.31.0
-
+          docker pull ghcr.io/kedacore/keda:2.9.1
+          docker tag ghcr.io/kedacore/keda:2.9.1 dazyun/kedacore-keda:2.9.1
+          docker pull ghcr.io/kedacore/keda-metrics-apiserver:2.9.1
+          docker tag ghcr.io/kedacore/keda-metrics-apiserver:2.9.1 dazyun/keda-metrics-apiserver:2.9.1
+          
           docker login -u dazyun -p dckr_pat_ZA5wVlDzq_VAxqJcKhyPy3p0xgM
-          docker push dazyun/tektoncd-pipeline-dashboard:v0.31.0
+          docker push dazyun/kedacore-keda:2.9.1
+          docker push dazyun/keda-metrics-apiserver:2.9.1
