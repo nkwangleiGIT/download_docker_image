@@ -11,11 +11,11 @@ jobs:
     steps:
       - name: download docker
         run: |
-          docker pull ghcr.io/kedacore/keda:2.9.1
-          docker tag ghcr.io/kedacore/keda:2.9.1 dazyun/kedacore-keda:2.9.1
-          docker pull ghcr.io/kedacore/keda-metrics-apiserver:2.9.1
-          docker tag ghcr.io/kedacore/keda-metrics-apiserver:2.9.1 dazyun/keda-metrics-apiserver:2.9.1
+          docker pull gcr.io/kubebuilder/kube-rbac-proxy:v0.13.0
+          docker tag gcr.io/kubebuilder/kube-rbac-proxy:v0.13.0 dazyun/kube-rbac-proxy:v0.13.0
+          docker pull ghcr.io/open-telemetry/opentelemetry-operator/opentelemetry-operator:0.66.0
+          docker tag ghcr.io/open-telemetry/opentelemetry-operator/opentelemetry-operator:0.66.0 dazyun/opentelemetry-operator:0.66.0
           
           docker login -u dazyun -p dckr_pat_ZA5wVlDzq_VAxqJcKhyPy3p0xgM
-          docker push dazyun/kedacore-keda:2.9.1
-          docker push dazyun/keda-metrics-apiserver:2.9.1
+          docker push dazyun/kube-rbac-proxy:v0.13.0
+          docker push dazyun/opentelemetry-operator:0.66.0
