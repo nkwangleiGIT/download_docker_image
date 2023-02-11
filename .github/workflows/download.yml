@@ -11,73 +11,9 @@ jobs:
     steps:
       - name: download docker
         run: |
-          docker pull ghcr.io/open-telemetry/demo:1.3.0-accountingservice
-          docker tag ghcr.io/open-telemetry/demo:1.3.0-accountingservice dazyun/demo:1.3.0-accountingservice
-          
-          docker pull ghcr.io/open-telemetry/demo:1.3.0-adservice
-          docker tag ghcr.io/open-telemetry/demo:1.3.0-adservice dazyun/demo:1.3.0-adservice
-          
-          docker pull ghcr.io/open-telemetry/demo:1.3.0-cartservice
-          docker tag ghcr.io/open-telemetry/demo:1.3.0-cartservice dazyun/demo:1.3.0-cartservice
-          
-          docker pull ghcr.io/open-telemetry/demo:1.3.0-checkoutservice 
-          docker tag ghcr.io/open-telemetry/demo:1.3.0-checkoutservice dazyun/demo:1.3.0-checkoutservice
-          
-          docker pull ghcr.io/open-telemetry/demo:1.3.0-currencyservice
-          docker tag ghcr.io/open-telemetry/demo:1.3.0-currencyservice dazyun/demo:1.3.0-currencyservice
- 
-          docker pull ghcr.io/open-telemetry/demo:1.3.0-emailservice
-          docker tag ghcr.io/open-telemetry/demo:1.3.0-emailservice dazyun/demo:1.3.0-emailservice
-          
-          docker pull ghcr.io/open-telemetry/demo:1.3.0-featureflagservice
-          docker tag ghcr.io/open-telemetry/demo:1.3.0-featureflagservice dazyun/demo:1.3.0-featureflagservice
-
-          docker pull ghcr.io/open-telemetry/demo:1.3.0-frauddetectionservice
-          docker tag ghcr.io/open-telemetry/demo:1.3.0-frauddetectionservice dazyun/demo:1.3.0-frauddetectionservice
-
-          docker pull ghcr.io/open-telemetry/demo:1.3.0-frontend
-          docker tag ghcr.io/open-telemetry/demo:1.3.0-frontend dazyun/demo:1.3.0-frontend
-          
-          docker pull ghcr.io/open-telemetry/demo:1.3.0-frontendproxy
-          docker tag ghcr.io/open-telemetry/demo:1.3.0-frontendproxy dazyun/demo:1.3.0-frontendproxy
- 
-          docker pull ghcr.io/open-telemetry/demo:1.3.0-kafka
-          docker tag ghcr.io/open-telemetry/demo:1.3.0-kafka dazyun/demo:1.3.0-kafka
-
-          docker pull ghcr.io/open-telemetry/demo:1.3.0-loadgenerator
-          docker tag ghcr.io/open-telemetry/demo:1.3.0-loadgenerator dazyun/demo:1.3.0-loadgenerator
-
-          docker pull ghcr.io/open-telemetry/demo:1.3.0-paymentservice
-          docker tag ghcr.io/open-telemetry/demo:1.3.0-paymentservice dazyun/demo:1.3.0-paymentservice
-
-          docker pull ghcr.io/open-telemetry/demo:1.3.0-productcatalogservice
-          docker tag ghcr.io/open-telemetry/demo:1.3.0-productcatalogservice dazyun/demo:1.3.0-productcatalogservice
-
-          docker pull quay.io/prometheus/prometheus:v2.41.0
-          docker tag quay.io/prometheus/prometheus:v2.41.0 dazyun/prometheus:v2.41.0
-
-          docker pull ghcr.io/open-telemetry/demo:1.3.0-quoteservice
-          docker tag ghcr.io/open-telemetry/demo:1.3.0-quoteservice dazyun/demo:1.3.0-quoteservice
-          
-          docker pull ghcr.io/open-telemetry/demo:1.3.0-recommendationservice
-          docker tag ghcr.io/open-telemetry/demo:1.3.0-recommendationservice dazyun/demo:1.3.0-recommendationservice        
+          docker pull ghcr.io/open-telemetry/demo:1.3.0-shippingservice
+          docker tag ghcr.io/open-telemetry/demo:1.3.0-shippingservice dazyun/demo:1.3.0-shippingservice 
           
           docker login -u dazyun -p dckr_pat_ZA5wVlDzq_VAxqJcKhyPy3p0xgM
-          docker push dazyun/demo:1.3.0-accountingservice
-          docker push dazyun/demo:1.3.0-adservice
-          docker push dazyun/demo:1.3.0-cartservice
-          docker push dazyun/demo:1.3.0-checkoutservice
-          docker push dazyun/demo:1.3.0-currencyservice
-          docker push dazyun/demo:1.3.0-emailservice
-          docker push dazyun/demo:1.3.0-featureflagservice
-          docker push dazyun/demo:1.3.0-frauddetectionservice
-          docker push dazyun/demo:1.3.0-frontend
-          docker push dazyun/demo:1.3.0-frontendproxy
-          docker push dazyun/demo:1.3.0-kafka
-          docker push dazyun/demo:1.3.0-loadgenerator
-          docker push dazyun/demo:1.3.0-paymentservice
-          docker push dazyun/demo:1.3.0-productcatalogservice
-          docker push dazyun/prometheus:v2.41.0
-          docker push dazyun/demo:1.3.0-quoteservice
-          docker push dazyun/demo:1.3.0-recommendationservice     
+          docker push dazyun/demo:1.3.0-shippingservice     
           
