@@ -11,8 +11,8 @@ jobs:
     steps:
       - name: download docker
         run: |
-          docker pull registry.k8s.io/descheduler/descheduler:v0.25.1
-          docker tag registry.k8s.io/descheduler/descheduler:v0.25.1 dazyun/descheduler:v0.25.1 
+          docker pull ghcr.io/backstage/backstage:latest
+          docker tag ghcr.io/backstage/backstage:latest dazyun/backstage:20230308
           
           docker login -u dazyun -p dckr_pat_ZA5wVlDzq_VAxqJcKhyPy3p0xgM
-          docker push dazyun/descheduler:v0.25.1    
+          docker push dazyun/backstage:20230308   
