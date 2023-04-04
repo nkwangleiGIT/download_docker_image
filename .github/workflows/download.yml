@@ -11,8 +11,8 @@ jobs:
     steps:
       - name: download docker
         run: |
-          docker pull ghcr.io/backstage/backstage:latest
-          docker tag ghcr.io/backstage/backstage:latest dazyun/backstage:20230308
-          
+          docker pull gcr.io/kubeflow-images-public/pytorch-operator:v0.6.0
+          docker tag gcr.io/kubeflow-images-public/pytorch-operator:v0.6.0 dazyun/pytorch-operator:v0.6.0
+
           docker login -u dazyun -p dckr_pat_ZA5wVlDzq_VAxqJcKhyPy3p0xgM
-          docker push dazyun/backstage:20230308   
+          docker push dazyun/pytorch-operator:v0.6.0
