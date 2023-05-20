@@ -11,8 +11,8 @@ jobs:
     steps:
       - name: download docker
         run: |
-          docker pull nvcr.io/nvidia/k8s-device-plugin:v0.14.0
-          docker tag nvcr.io/nvidia/k8s-device-plugin:v0.14.0 dazyun/k8s-device-plugin:v0.14.0
+          docker pull nvcr.io/nvidia/k8s/dcgm-exporter:3.1.7-3.1.4-ubuntu20.04
+          docker tag nvcr.io/nvidia/k8s/dcgm-exporter:3.1.7-3.1.4-ubuntu20.04 dazyun/dcgm-exporter:3.1.7-3.1.4-ubuntu20.04
 
           docker login -u dazyun -p dckr_pat_ZA5wVlDzq_VAxqJcKhyPy3p0xgM
-          docker push dazyun/k8s-device-plugin:v0.14.0
+          docker push dazyun/dcgm-exporter:3.1.7-3.1.4-ubuntu20.04
