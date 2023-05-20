@@ -11,8 +11,8 @@ jobs:
     steps:
       - name: download docker
         run: |
-          docker pull gcr.io/kubeflow-images-public/pytorch-operator:v0.6.0
-          docker tag gcr.io/kubeflow-images-public/pytorch-operator:v0.6.0 dazyun/pytorch-operator:v0.6.0
+          docker pull nvcr.io/nvidia/k8s-device-plugin:v0.14.0
+          docker tag nvcr.io/nvidia/k8s-device-plugin:v0.14.0 dazyun/k8s-device-plugin:v0.14.0
 
           docker login -u dazyun -p dckr_pat_ZA5wVlDzq_VAxqJcKhyPy3p0xgM
-          docker push dazyun/pytorch-operator:v0.6.0
+          docker push dazyun/k8s-device-plugin:v0.14.0
