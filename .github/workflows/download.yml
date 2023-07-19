@@ -11,8 +11,8 @@ jobs:
     steps:
       - name: download docker
         run: |
-          docker pull registry.k8s.io/ingress-nginx/controller:v1.8.1
-          docker tag registry.k8s.io/ingress-nginx/controller:v1.8.1 dazyun/controller:v1.8.1
+          docker pull registry.k8s.io/ingress-nginx/controller:v1.3.1
+          docker tag registry.k8s.io/ingress-nginx/controller:v1.3.1 dazyun/controller:v1.3.1
 
           docker login -u dazyun -p dckr_pat_ZA5wVlDzq_VAxqJcKhyPy3p0xgM
-          docker push dazyun/controller:v1.8.1
+          docker push dazyun/controller:v1.3.1
