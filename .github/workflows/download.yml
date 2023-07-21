@@ -11,8 +11,8 @@ jobs:
     steps:
       - name: download docker
         run: |
-          docker pull registry.k8s.io/ingress-nginx/controller:v1.3.1
-          docker tag registry.k8s.io/ingress-nginx/controller:v1.3.1 dazyun/controller:v1.3.1
+          docker pull registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.5.0
+          docker tag registry.k8s.io/kube-state-metrics/kube-state-metrics:v2.5.0 dazyun/kube-state-metrics:v2.5.0
 
           docker login -u dazyun -p dckr_pat_ZA5wVlDzq_VAxqJcKhyPy3p0xgM
-          docker push dazyun/controller:v1.3.1
+          docker push dazyun/kube-state-metrics:v2.5.0
